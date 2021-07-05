@@ -5,6 +5,8 @@ services:
     build: .
     volumes:
       - .:/app
+      - static_volume:/opt/services/app/static  # <-- bind the static volume
+      - media_volume:/opt/services/app/media  # <-- bind the media volume
     ports:
       - 8000:8000
       
@@ -14,6 +16,9 @@ services:
       - 8000:80
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - static_volume:/opt/services/app/static  # <-- bind the static volume
+      - media_volume:/opt/services/app/media  # <-- bind the media volume
+
     depends_on:  # <-- wait for web to be "ready" before starting this service
       - web
     networks:  # <-- here
@@ -36,3 +41,5 @@ networks:
 
 volumes:
   database1_volume:
+  static_volume:  # <-- declare the static volume
+  media_volume:  # <-- declare the media volume
