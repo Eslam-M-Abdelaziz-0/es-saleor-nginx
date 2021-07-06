@@ -1,45 +1,37 @@
-version: '3'
+version: '3.8'
 
 services:
+  nginx:
+    build: ./nginx
+    ports:
+      - 1300:80
+    volumes:
+      - .:/code
+    depends_on:
+      - web
+    restart: "on-failure"
   web:
     build: .
+    #command: python /code/manage.py runserver 0.0.0.0:8000
+    command: sh -c "pip install -r requirements_dev.txt &&
+                    python manage.py makemigrations &&
+                    python manage.py migrate &&
+                    python manage.py runserver 0.0.0.0:8000 &&
+                    python manage.py collectstatic --noinput &&
+                    python manage.py dumpdata > db_old.json &&
+                    gunicorn mysite.wsgi:application --bind 0.0.0.0:${APP_PORT}"
     volumes:
-      - .:/app
-      - static_volume:/opt/services/app/static  # <-- bind the static volume
-      - media_volume:/opt/services/app/media  # <-- bind the media volume
+      - .:/code
     ports:
       - 8000:8000
-      
-  nginx:
-    image: nginx:1.13
-    ports:
-      - 8000:80
+    depends_on:
+      - db
+  db:
+    image: postgres:11
     volumes:
-      - ./config/nginx/conf.d:/etc/nginx/conf.d
-      - static_volume:/opt/services/app/static  # <-- bind the static volume
-      - media_volume:/opt/services/app/media  # <-- bind the media volume
-
-    depends_on:  # <-- wait for web to be "ready" before starting this service
-      - web
-    networks:  # <-- here
-      - nginx_network
-      
-  database1:  # <-- IMPORTANT: same name as in DATABASES setting, otherwise Django won't find the database!
-    image: postgres:10
-    env_file:  # <-- we use the previously defined values
-      - config/db/database1_env
-    networks:  # <-- connect to the bridge
-      - database1_network
-    volumes:
-      - database1_volume:/var/lib/postgresql/data
-
-networks:
-  nginx_network:
-    driver: bridge
-  database1_network:  # <-- add the bridge
-    driver: bridge
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
 
 volumes:
-  database1_volume:
-  static_volume:  # <-- declare the static volume
-  media_volume:  # <-- declare the media volume
+  postgres_data:
