@@ -1368,7 +1368,7 @@ sympy = ">=0.7.3"
 
 [[package]]
 name = "micawber"
-version = "0.5.3"
+version = "0.5.4"
 description = "a small library for extracting rich content from urls"
 category = "main"
 optional = false
@@ -2568,8 +2568,8 @@ multidict = ">=4.0"
 
 [metadata]
 lock-version = "1.1"
-  python-versions = "~3.9"
-content-hash = "3debe5a365f24f2fa1ca63a1e51b5fcd5c9f3f18d0e4f0211d315f89e4d01b6d"
+python-versions = "~3.9"
+content-hash = "6d56f5f1dbbd375d74d0b71ac2035ff2d140ca28090d575f4dfd52f595bddca7"
 
 [metadata.files]
 adyen = [
@@ -3251,7 +3251,7 @@ measurement = [
     {file = "measurement-3.2.0.tar.gz", hash = "sha256:352b20f7f0e553236af7c5ed48d091a51cf26061c1a063f46b31706ff7c0d57a"},
 ]
 micawber = [
-    {file = "micawber-0.5.3.tar.gz", hash = "sha256:05ef4c89e307e3031dd1d85a3a557cd7f9f900f7dbbbcb33dde454940ca38460"},
+    {file = "micawber-0.5.4.tar.gz", hash = "sha256:003c5345aafe84f6b60fd289c003e8b1fef04c14e015c2d52d792a6b88135c89"},
 ]
 mpmath = [
     {file = "mpmath-1.2.1-py3-none-any.whl", hash = "sha256:604bc21bd22d2322a177c73bdb573994ef76e62edd595d17e00aff24b0667e5c"},
