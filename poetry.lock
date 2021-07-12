@@ -887,7 +887,7 @@ grpc = ["grpcio (>=1.8.2,<2.0dev)"]
 
 [[package]]
 name = "google-cloud-pubsub"
-version = "2.6.0"
+version = "2.6.1"
 description = "Google Cloud Pub/Sub API client library"
 category = "main"
 optional = false
@@ -896,6 +896,7 @@ python-versions = ">=3.6"
 [package.dependencies]
 google-api-core = {version = ">=1.22.2,<2.0.0dev", extras = ["grpc"]}
 grpc-google-iam-v1 = ">=0.12.3,<0.13dev"
+grpcio = ">=1.38.1,<2.0dev"
 libcst = ">=0.3.10"
 proto-plus = ">=1.7.1"
 
@@ -2568,7 +2569,7 @@ multidict = ">=4.0"
 
 [metadata]
 lock-version = "1.1"
-  python-versions = "~3.9"
+python-versions = "~3.9"
 content-hash = "3debe5a365f24f2fa1ca63a1e51b5fcd5c9f3f18d0e4f0211d315f89e4d01b6d"
 
 [metadata.files]
@@ -2935,8 +2936,8 @@ google-cloud-core = [
     {file = "google_cloud_core-1.7.1-py2.py3-none-any.whl", hash = "sha256:31e8c8596d3fbe2ecbe8708572b48741f8b247a78740aebfaf4da445487a1af5"},
 ]
 google-cloud-pubsub = [
-    {file = "google-cloud-pubsub-2.6.0.tar.gz", hash = "sha256:e1315a3caebd5a6a824ec9197b908cc724ebdfd29abbc8b7569fa2aa6733bf97"},
-    {file = "google_cloud_pubsub-2.6.0-py2.py3-none-any.whl", hash = "sha256:9bccec50a8c645d4d34424796a07a83b0201fd62385722f77948d45a86153c8f"},
+    {file = "google-cloud-pubsub-2.6.1.tar.gz", hash = "sha256:0650287a510cef6f90056e0c0224c0edb01a797295437c82f75cd9d37355ad38"},
+    {file = "google_cloud_pubsub-2.6.1-py2.py3-none-any.whl", hash = "sha256:d08191baeea9181060f7c1883a9b5c2317af0ad4ef56e1f67ee9495e83167114"},
 ]
 google-cloud-storage = [
     {file = "google-cloud-storage-1.40.0.tar.gz", hash = "sha256:560f7d112dce319a39b06c35cf53ae156ef42dfb213fc633c09aefaae7c060ec"},
