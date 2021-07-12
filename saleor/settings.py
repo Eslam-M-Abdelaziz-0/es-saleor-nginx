@@ -72,6 +72,7 @@ INTERNAL_IPS = get_list(os.environ.get("INTERNAL_IPS", "127.0.0.1"))
 #    )
 #}
 
+from pathlib import Path
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 DATABASES = {
     "default": {
