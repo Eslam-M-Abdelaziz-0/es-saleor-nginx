@@ -38,11 +38,6 @@ RUN apt-get update \
 RUN mkdir -p /code/media /code/static \
   && chown -R saleor:saleor /code/
 
-### settiing up postgres user.
-RUN sudo -u postgres psql -c "CREATE ROLE saleor WITH LOGIN PASSWORD 'saleor';"
-RUN sudo -u postgres psql -c "CREATE DATABASE saleor;"
-RUN sudo -u postgres psql -c "ALTER USER saleor WITH SUPERUSER;"
-
 COPY --from=build-python /usr/local/lib/python3.9/site-packages/ /usr/local/lib/python3.9/site-packages/
 COPY --from=build-python /usr/local/bin/ /usr/local/bin/
 COPY . /code
