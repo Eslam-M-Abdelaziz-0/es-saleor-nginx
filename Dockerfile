@@ -65,4 +65,4 @@ GraphQL, Django, and ReactJS."                                                  
       org.opencontainers.image.authors="Mirumee Software (https://mirumee.com)"        \
       org.opencontainers.image.licenses="BSD 3"
 
-CMD ["gunicorn", "--bind", ":8000", "--workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "saleor.asgi:codelication"]
+#CMD ["gunicorn", "--bind", ":8000", "--workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "saleor.asgi:codelication"]
