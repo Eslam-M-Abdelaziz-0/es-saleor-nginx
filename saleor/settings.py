@@ -66,24 +66,24 @@ ALLOWED_CLIENT_HOSTS = get_list(ALLOWED_CLIENT_HOSTS)
 
 INTERNAL_IPS = get_list(os.environ.get("INTERNAL_IPS", "127.0.0.1"))
 
-DATABASES = {
-    "default": dj_database_url.config(
-        default="postgres://saleor:saleor@db:5432/saleor", conn_max_age=600
-    )
-}
-
-#from pathlib import Path
-#BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 #DATABASES = {
-#    "default": {
-#        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.postgresql"),
-#        "NAME": os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, "saleor")),
-#        "USER": os.environ.get("SQL_USER", "saleor"),
-#        "PASSWORD": os.environ.get("SQL_PASSWORD", "saleor"),
-#        "HOST": os.environ.get("SQL_HOST", "db"),
-#        "PORT": os.environ.get("SQL_PORT", "5432"),
-#    }
+#    "default": dj_database_url.config(
+#        default="postgres://saleor:saleor@localhost:5432/saleor", conn_max_age=600
+#    )
 #}
+
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+DATABASES = {
+    "default": {
+        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.postgresql"),
+        "NAME": os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, "postgres")),
+        "USER": os.environ.get("SQL_USER", "postgres"),
+        "PASSWORD": os.environ.get("SQL_PASSWORD", "postgres"),
+        "HOST": os.environ.get("SQL_HOST", "db"),
+        "PORT": os.environ.get("SQL_PORT", "5432"),
+    }
+}
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
