@@ -77,9 +77,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 DATABASES = {
     "default": {
         "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
-        "NAME": os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, "postgres")),
-        "USER": os.environ.get("SQL_USER", "postgres"),
-        "PASSWORD": os.environ.get("SQL_PASSWORD", "postgres"),
+        "NAME": os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, "saleor")),
+        "USER": os.environ.get("SQL_USER", "saleor"),
+        "PASSWORD": os.environ.get("SQL_PASSWORD", "saleor"),
         "HOST": os.environ.get("SQL_HOST", "db"),
         "PORT": os.environ.get("SQL_PORT", "5432"),
     }
