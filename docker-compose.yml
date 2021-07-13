@@ -18,15 +18,15 @@ services:
       - ./.env
     #command: python /code/manage.py runserver 0.0.0.0:8000
     #python manage.py runserver_plus 0.0.0.0:8000 --cert-file cert.crt &&
-    command: sh -c "export ALLOWED_HOSTS=$34.223.4.188
-                    export ALLOWED_CLIENT_HOSTS=$34.223.4.188
-                    export DEBUG=True
-                    export SECRET_KEY=123456
-                    export INTERNAL_34.223.4.188S=127.0.0.1,$34.223.4.188,
-                    export API_URI=http://$34.223.4.188:8000/graphql/
-                    export APP_MOUNT_URI=/dashboard/
-                    export DEFAULT_COUNTRY=IN
-                    export DEFAULT_CURRENCY=INR
+    command: sh -c "export ALLOWED_HOSTS=$34.223.4.188 &&
+                    export ALLOWED_CLIENT_HOSTS=$34.223.4.188 &&
+                    export DEBUG=True &&
+                    export SECRET_KEY=123456 &&
+                    export INTERNAL_34.223.4.188S=127.0.0.1,$34.223.4.188, &&
+                    export API_URI=http://$34.223.4.188:8000/graphql/ &&
+                    export APP_MOUNT_URI=/dashboard/ &&
+                    export DEFAULT_COUNTRY=IN &&
+                    export DEFAULT_CURRENCY=INR &&
                     python manage.py makemigrations &&
                     python manage.py migrate &&
                     python manage.py runserver 0.0.0.0:8000 &&
