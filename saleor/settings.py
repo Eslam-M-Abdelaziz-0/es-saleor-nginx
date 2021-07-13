@@ -76,7 +76,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 DATABASES = {
     "default": {
-        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
+        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.postgresql"),
         "NAME": os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, "saleor")),
         "USER": os.environ.get("SQL_USER", "saleor"),
         "PASSWORD": os.environ.get("SQL_PASSWORD", "saleor"),
